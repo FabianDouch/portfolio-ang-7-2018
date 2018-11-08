@@ -1,0 +1,16 @@
+<p>
+  tags-form works!
+</p>
+<form [formGroup]="tagsCreateForm" (ngSubmit)="addTags()">
+  <input type="hidden" formControlName="$key">
+  <div>
+    <label for="">Enter tag name here</label>
+      <input type="text">
+
+  </div>
+
+
+  <div class="">
+    <input type="submit" name="" value="Submit">
+  </div>
+  </form>

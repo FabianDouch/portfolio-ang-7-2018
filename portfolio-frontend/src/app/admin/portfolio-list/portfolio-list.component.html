@@ -1,0 +1,26 @@
+
+<form>
+  <input type="text" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" value="">
+  <button type="button" name="button" (click)="searchText=''">X</button>
+</form>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>link</th>
+    <th>Description</th>
+  </thead>
+  <ng-container *ngFor="let portfolio of portfolioArray">
+    <tr *ngIf="filterCondition(portfolio) || ''">
+      <td>{{ portfolio.title }}</td>
+      <td>{{ portfolio.link }}</td>
+      <td>{{ portfolio.description }}</td>
+      <td>
+        <button type="button" name="button" (click)="portfolioService.populateForm(portfolio)">Edit</button>
+        <button type="button" name="button" (click)="confirmDeletePortfolioItem(portfolio.$key)">Delete</button>
+      </td>
+    </tr>
+  </ng-container>
+</table>
+<div class="" *ngIf="showDeleteMessage">
+  Deleted successfully!
+</div>

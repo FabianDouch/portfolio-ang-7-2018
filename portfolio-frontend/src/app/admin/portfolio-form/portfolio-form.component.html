@@ -1,0 +1,38 @@
+<h1>Portfolio create</h1>
+<form [formGroup]="portfolioCreateForm" (ngSubmit)="addPortfolioPost()">
+  <input type="hidden" formControlName="$key">
+  <div class="">
+    <label for="">Title</label>
+    <input type="text" formControlName="title" [ngClass]="{'invalid': submitted && formControls.title.errors}">
+    <div class="invalid-feedback" *ngIf="submitted && formControls.title.errors">
+      <label *ngIf="formControls.title.errors.required">A title is required.</label>
+      <label *ngIf="formControls.title.errors.minlength">Your title must be at least 4 characters long.</label>
+    </div>
+  </div>
+<div class="">
+    <label for="">Link</label>
+    <input type="text" formControlName="link">
+  </div>
+  <div class="">
+    <label for="">Image</label>
+    <input type="file" name="" formControlName="imageUrl">
+  </div>
+  <div class="">
+    <label for="">Tags</label>
+    <input type="radio" name="" formControlName="tags">
+  </div>
+  <div class="">
+    <label for="">Description</label>
+    <textarea rows="8" cols="80" formControlName="description"></textarea>
+  </div>
+  <div class="">
+    <label for="">Featured</label>
+    <input type="checkbox" formControlName="featured">
+  </div>
+  <div class="">
+    <input type="submit" name="" value="Submit">
+  </div>
+  <div class="" *ngIf="showSuccessMessage">
+    Submitted successfully
+  </div>
+</form>
